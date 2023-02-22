@@ -1,0 +1,43 @@
+pasos para instalar tailwind en vue
+1:
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+(eso le generara 2 archivos:  tailwind.config.js y postcss.config.js)
+
+2:
+npx tailwindcss init -p
+
+3:
+poner en tailwind.config.js lo siguiente:
+module.exports = {
+  purge: [],
+  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+4:
+poner en postcss.config.js lo siguiente:
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+5:
+crear archivo ./src/index.css con los siguientes datos:
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+6:
+en main.js
+// src/main.js
+import './index.css'
